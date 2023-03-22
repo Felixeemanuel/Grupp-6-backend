@@ -1,11 +1,11 @@
-const express = require('express')
+const app = require('./app')
 const mongoose = require('mongoose')
-const path = require('path')
-require('dotenv').config({ path: '.env' })
-const app = express()
+require('dotenv').config()
 
-const PORT = process.env.PORT
-// const mongoURI = process.env.MONGO_URI
+const PORT = process.env.PORT || 9999
+const mongoURI = process.env.MONGO_URI
+
+// app.use('/api/errands', require('./controllers/errandController'))
 
 app.listen(PORT, () => console.log('server running on http://localhost:' + PORT))
 mongoose.connect(mongoURI)

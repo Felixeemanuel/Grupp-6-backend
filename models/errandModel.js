@@ -35,3 +35,32 @@ exports.getAllErrands = (req, res) => {
             })
         })
 }
+
+
+
+exports.updateErrand = (req,res) => {
+    const { status } = req.body;
+    if(!status){
+        res.status(400).json({
+            message: 'You need to enter a new status'
+        })
+        return
+    }
+    Errand.findByIdAndUpdate(req.params.id, { status }, {new: true})
+    .then(errand => {
+        if(!errand){
+            res.status(404).json({
+                message: 'Can not find that errand'
+            })
+            return
+        }
+    
+        res.status(200).json(errand)
+    })
+    .catch(err =>{
+        res.status(500).json({
+            message: 'Somethinf went wrong when updating the errand',
+            err: err.message
+        })
+    })
+}

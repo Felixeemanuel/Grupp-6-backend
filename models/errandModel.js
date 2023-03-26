@@ -18,7 +18,7 @@ exports.getAllErrands = (req, res) => {
 
 exports.createNewErrand = (req, res) => {
 
-    const { email, subject, message, comments } = req.body
+    const { email, subject, message, comment } = req.body
 
     if(!email || !subject || !message) {
         res.status(400).json({
@@ -27,7 +27,7 @@ exports.createNewErrand = (req, res) => {
         return
     }
 
-    Errand.create({ email, subject, message, comments })
+    Errand.create({ email, subject, message, comment })
         .then(data => {
             res.status(201).json(data)
         })

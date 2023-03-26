@@ -1,7 +1,7 @@
+const router = require('express').Router()
 const errandSchema = require('../schemas/errandSchema')
 const errandModel = require('../models/errandModel')
 
-const router = require('express').Router()
 
 router.post('/', errandModel.createNewErrand)   //POST på errands/ med JSON "email": "x", "subject": "x","message": "x"
 

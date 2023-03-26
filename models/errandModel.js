@@ -65,3 +65,25 @@ exports.updateErrand = (req,res) => {
         })
     })
 }
+
+
+exports.deleteErrand = (req, res) => {
+
+    Errand.findByIdAndDelete(req.params.id)
+    .then(data => {
+        if(!data) {
+            res.status(404).json({
+                message: 'Could not find that todo'
+            })
+        }
+
+        res.status(200).json({ id: data._id })
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Something went wrong when deleteing the errand',
+            err: err.message
+        })
+    })
+
+}

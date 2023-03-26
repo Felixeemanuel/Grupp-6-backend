@@ -36,3 +36,23 @@ exports.createNewComment = (req, res) => {
             });
         });
 };
+exports.deleteComment = (req, res) => {
+
+    Comment.findByIdAndDelete(req.params.id)
+    .then(data => {
+        if(!data) {
+            res.status(404).json({
+                message: 'Could not find that Comment'
+            })
+        }
+
+        res.status(200).json({ id: data._id })
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Something went wrong when deleting the Comment',
+            err: err.message
+        })
+    })
+
+}

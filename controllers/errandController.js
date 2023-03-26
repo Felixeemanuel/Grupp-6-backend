@@ -9,6 +9,6 @@ router.get('/', errandModel.getAllErrands)  //GET på errands/
 
 router.put('/:id', errandModel.updateErrand) // PUT på errands/id med JSON: "status": 1/2/3
 
-router.delete('/:id', errandModel.deleteErrand)
+router.delete('/:id', errandModel.deleteErrand) // DELETE på errands/id
 
 module.exports = router

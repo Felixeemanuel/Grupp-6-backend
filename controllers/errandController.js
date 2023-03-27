@@ -3,7 +3,7 @@ const errandSchema = require('../schemas/errandSchema')
 const errandModel = require('../models/errandModel')
 
 
-router.post('/', errandModel.createNewErrand)   //POST på errands/ med JSON "email": "x", "subject": "x","message": "x", "comment": "kommentarens id"
+router.post('/', errandModel.createNewErrand)   //POST på errands/ med JSON "email": "x", "subject": "x","message": "x"
 
 router.get('/', errandModel.getAllErrands)  //GET på errands/
 

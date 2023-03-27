@@ -64,7 +64,7 @@ exports.createNewErrand = (req, res) => {
 
 exports.updateErrand = (req,res) => {
     const { status } = req.body;
-    if(!status){
+    if(!status || status < 1 || status > 3){
         res.status(400).json({
             message: 'You need to enter a new status'
         })

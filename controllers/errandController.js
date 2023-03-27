@@ -7,6 +7,8 @@ router.post('/', errandModel.createNewErrand)   //POST på errands/ med JSON "em
 
 router.get('/', errandModel.getAllErrands)  //GET på errands/
 
+router.get('/:id', errandModel.getErrandById) // GET på errands/id
+
 router.put('/:id', errandModel.updateErrand) // PUT på errands/id med JSON: "status": 1/2/3
 
 router.delete('/:id', errandModel.deleteErrand) // DELETE på errands/id
